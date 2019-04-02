@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <a class="navbar-brand" [routerLink]="['/home']">PMSB - TO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Tarefas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="  dropdown-item" [routerLink]="['/em-construcao']"> Enviadas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Recebidas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Concluidas / Enviadas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Concluidas / Recebidas</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Questionario
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="  dropdown-item" [routerLink]="['/em-construcao']"> Água</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Esgoto</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Resíduos solidos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Drenagem urbana</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Produto
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="  dropdown-item" [routerLink]="['/em-construcao']"> Água</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Esgoto</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Resíduos solidos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Drenagem urbana</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Sintese
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="  dropdown-item" [routerLink]="['/em-construcao']"> Água</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Esgoto</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Resíduos solidos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/em-construcao']"> Drenagem urbana</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Administração
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+          <li class="dropdown-submenu">
+            <a class="dropdown-item" tabindex="-1">Dados</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" [routerLink]="['/admin-perfil']"><a>Usuarios</a></li>
+              <div class="dropdown-divider"></div>
+              <li class="dropdown-item" [routerLink]="['/em-construcao']"><a>Perfis</a></li>
+              <div class="dropdown-divider"></div>
+              <li class="dropdown-item" [routerLink]="['/em-construcao']"><a>Eixos</a></li>
+              <div class="dropdown-divider"></div>
+              <li class="dropdown-item" [routerLink]="['/em-construcao']"><a>Cargos</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item" tabindex="-1">Fluxograma</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" [routerLink]="['/em-construcao']" ><a>Departamento / Cargo / Usuario</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="dropdown" id='user_dropdown'>
+      <a class=" dropdown-toggle" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Username
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" [routerLink]="['/em-construcao']">Conta</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" [routerLink]="['/perfil']">Perfil</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" [routerLink]="['/em-construcao']">Tarefas</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)='logOut()'>Sair</a>
+      </div>
+    </div>
+  </div>
+</nav>

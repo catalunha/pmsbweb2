@@ -1,0 +1,41 @@
+<app-barra-superior></app-barra-superior>
+
+<div class="container" style="padding-top:2%">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ação</th>
+                <th scope="col">Atributo</th>
+                <th scope="col">Valor</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let perfil of perfilLista">
+            <tr>
+                <td>
+                    <ng-template [ngIf]="perfil.acao == 'preencher'" [ngIfElse]="perfilElse">
+                        <a class="acao nav-link icon-text btn btn-outline-secondary"><i class="icon ion-md-add"></i>
+                            {{ perfil.acao }} </a>
+                    </ng-template>
+                    <ng-template #perfilElse>
+                        <a class="acao nav-link icon-text btn btn-outline-secondary"><i class="icon ion-ios-create"></i>
+                            {{ perfil.acao }} </a>
+                    </ng-template>
+                </td>
+                <th scope="row">{{ perfil.atributo }}</th>
+                <td>
+                    <a disable class="nav-link icon-text"> {{ perfil.valor }} </a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!--
+ion-md-close-circle
+ion-ios-checkmark-circle
+ion-md-checkmark-circle
+-->
