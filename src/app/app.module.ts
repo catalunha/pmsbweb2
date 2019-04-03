@@ -14,13 +14,18 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+//component temporario
+import { EmConstrucaoComponent } from './pages/em-construcao/em-construcao.component';
+
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component'
 import { AuthService } from './services/auth-service';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { BarraSuperiorComponent } from './barra-superior/barra-superior.component';
-import { EmConstrucaoComponent } from './pages/em-construcao/em-construcao.component';
-import { AdminPerfilComponent } from './pages/admin/admin-perfil/admin-perfil.component';
+import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.component';
+import { AdminUsuariosComponent } from './pages/admin/admin-usuarios/admin-usuarios.component';
+import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/admin-departamentos.component';
+import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
 
 
 @NgModule({
@@ -31,7 +36,10 @@ import { AdminPerfilComponent } from './pages/admin/admin-perfil/admin-perfil.co
     PerfilComponent,
     BarraSuperiorComponent,
     EmConstrucaoComponent,
-    AdminPerfilComponent
+    AdminPerfilComponent,
+    AdminUsuariosComponent,
+    AdminDepartamentosComponent,
+    AdminCargosComponent,
   ],
   imports: [
     BrowserModule,

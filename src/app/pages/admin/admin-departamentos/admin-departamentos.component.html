@@ -1,0 +1,59 @@
+<app-barra-superior></app-barra-superior>
+<div class="container" style="padding-top:2%">
+    <div class="row">
+        <div class="col">
+            <h6><strong>Administração -> Dados -> Eixos.</strong></h6>
+        </div>
+    </div>
+    <div class="row"></div>
+</div>
+
+<div class="container" style="padding-top:1%">
+    <div class="row">
+        <div class="col">
+            <p>Faça download desta listagem para uso em planilha,<a (click)="gerarCSV()" onmouseover="style.color='#0B0080'" onmouseout="style.color='#3366bb'"  style="color: #3366bb" > clicando aqui.</a></p>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" ><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('nome')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Nome</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('descricao')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Descrição</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('superior')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Superior</i></a></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let depart of departamento_list">
+            <tr>
+                <td>
+                    {{ depart.nome}}
+                </td>
+                <td>
+                    {{ depart.descricao }}
+                </td>
+                <td>
+                    {{ depart.superior }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--
+ {
+    "id": "f455d637-5409-41c4-bd99-ead350044a5f",
+    "criado_em": "2018-08-01T16:09:52.618301-03:00",
+    "editado_em": "2018-10-16T09:37:01.386940-03:00",
+    "nome": "Abastecimento de Água",
+    "descricao": "...",
+    "superior": "4bacb914-da6a-422e-b807-17c823d8a08a"
+  },
+-->
+
+<!--
+    Administração -> Dados -> Departamentos.
+    Arquivo csv.
+    
+    nome
+    descricao
+    superior
+-->

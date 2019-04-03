@@ -1,0 +1,106 @@
+<app-barra-superior></app-barra-superior>
+<div class="container" style="padding-top:2%">
+    <div class="row">
+        <div class="col">
+            <h6><strong>Administração -> Dados -> Usuarios.</strong></h6>
+        </div>
+    </div>
+    <div class="row"></div>
+</div>
+
+<div class="container" style="padding-top:1%">
+    <div class="row">
+        <div class="col">
+            <p>Faça download desta listagem para uso em planilha,<a (click)="gerarCSV()" onmouseover="style.color='#0B0080'" onmouseout="style.color='#3366bb'"  style="color: #3366bb" > clicando aqui.</a></p>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Minefoto</th>
+                <th scope="col" ><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorValor('username')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">CPF</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('first_name')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Nome</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorValor('telefone_celular')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Telefone</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('email')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Email</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('superior')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Superior</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('departamento')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Departamento</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('cargo')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Cargo</i></a></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let user of userlist">
+            <tr>
+                <td>
+                    <img src="{{ user.foto }}" alt="Girl in a jacket" width="50">
+                </td>
+                <td>
+                    {{ user.username }}
+                </td>
+                <td>
+                    {{ user.first_name }}
+                </td>
+                <td>
+                    {{ user.telefone_celular }}
+                </td>
+                <td>
+                    {{ user.email }}
+                </td>
+                <td>
+                    {{ user.superior }}
+                </td>
+                <td>
+                    {{ user.departamento }}
+                </td>
+                <td>
+                    {{ user.cargo }}
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--
+cargo: null
+criado_em: "2019-04-01T18:01:07.447435-03:00"
+date_joined: "2019-04-01T18:01:06.398031-03:00"
+departamento: null
+editado_em: "2019-04-01T18:01:07.447451-03:00"
+email: "proclinicagv.adm@gmail.com"
+first_name: "a"
+foto: "https://pmsb.sfo2.digitaloceanspaces.com/files/media/usuario_foto/4feb54a9-2c32-4b3e-8153-e62ceb7632ba/WhatsApp_Image_2019-04-01_at_08.26.01.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KIOYALKRG4O3VDNTBPRD%2F20190402%2Fsfo2%2Fs3%2Faws4_request&X-Amz-Date=20190402T093323Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4ce8b26d816291ceea208bec43168c5d504bffe897ce9e4fc2ce21da9f5f5dab"
+groups: []
+id: "4feb54a9-2c32-4b3e-8153-e62ceb7632ba"
+is_active: false
+is_staff: false
+is_superuser: false
+last_login: null
+last_name: "a"
+superior: null
+telefone_celular: "3332211136"
+user_permissions: []
+username: "83691537601"
+
+
+<ng-template [ngIf]="perfil.acao == 'preencher'" [ngIfElse]="perfilElse">
+    <a class="acao nav-link icon-text btn btn-outline-secondary"><i class="icon ion-md-add"></i> {{ perfil.acao }} </a>
+</ng-template>
+<ng-template #perfilElse>
+    <a class="acao nav-link icon-text btn btn-outline-secondary"><i class="icon ion-ios-create"></i> {{ perfil.acao }} </a>
+</ng-template>
+
+
+-->
+
+<!--
+    Administração -> Dados -> Usuarios.
+    Arquivo csv.
+    
+    foto
+    username(cpf)
+    nome
+    telefone
+    email
+    superior
+    departamento
+    cargo
+-->

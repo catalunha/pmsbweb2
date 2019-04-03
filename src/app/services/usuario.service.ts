@@ -9,14 +9,17 @@ import { HttpUtilService } from './http-util-service'
 export class UsuarioService extends HttpUtilService {
 
   private user_url = 'api/contas/users/'
-  
 
   constructor(public http: Http, private httpUtil: HttpUtilService) {
     super(http)
   }
 
-  public carregarListaCompletaUsuarios(): Observable<any>{
-    return super.get({},this.user_url)
+  public async carregarListaCompletaUsuarios(){
+    await super.get({},this.user_url).subscribe((response)=>{
+      localStorage.setItem('usuarios',JSON.stringify(response))
+    },(error)=>{
+      console.log("Error: " + error)
+    })
   }
 
   public carregarDadosUsuario(){
@@ -27,5 +30,4 @@ export class UsuarioService extends HttpUtilService {
       console.log(error)
     })
   }
-
 }

@@ -11,7 +11,6 @@ export class PerfilComponent implements OnInit {
   public perfilLista
   
   constructor(){ 
-    console.log(perfilLista)
   }
 
   ngOnInit() {

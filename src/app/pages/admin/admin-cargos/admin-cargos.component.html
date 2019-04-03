@@ -1,0 +1,53 @@
+<app-barra-superior></app-barra-superior>
+<div class="container" style="padding-top:2%">
+    <div class="row">
+        <div class="col">
+            <h6><strong>Administração -> Dados -> Cargos.</strong></h6>
+        </div>
+    </div>
+    <div class="row"></div>
+</div>
+
+<div class="container" style="padding-top:1%">
+    <div class="row">
+        <div class="col">
+            <p>Faça download desta listagem para uso em planilha,<a (click)="gerarCSV()" onmouseover="style.color='#0B0080'" onmouseout="style.color='#3366bb'"  style="color: #3366bb" > clicando aqui.</a></p>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" ><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('nome')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Nome</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('descricao')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Descrição</i></a></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let depart of departamento_list">
+            <tr>
+                <td>
+                    {{ depart.nome}}
+                </td>
+                <td>
+                    {{ depart.descricao }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--
+  {
+    "id": "c1ab33ff-adf8-4986-b906-ac328f87877c",
+    "criado_em": "2018-09-04T16:36:48.973750-03:00",
+    "editado_em": "2018-09-04T16:36:48.973772-03:00",
+    "nome": "Bolsista",
+    "descricao": "..."
+  },
+-->
+
+<!--
+    Administração -> Dados -> Departamentos.
+    Arquivo csv.
+    
+    nome
+    descricao
+-->
