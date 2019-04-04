@@ -3,14 +3,13 @@ import { ModuleWithProviders } from "@angular/core/src/metadata";
 
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component'
-import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.component'
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { EmConstrucaoComponent } from './pages/em-construcao/em-construcao.component'
 import { AuthGuard, AuthGuardAdmin } from "./guards/auth.guard";
 import { AdminUsuariosComponent } from './pages/admin/admin-usuarios/admin-usuarios.component';
 import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/admin-departamentos.component'
 import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
-
+import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.component'
 
 export const appRoutes: Routes = [
   {
@@ -18,15 +17,18 @@ export const appRoutes: Routes = [
   },
   {
     path:'admin/usuarios', component:AdminUsuariosComponent,
-    canActivate: [AuthGuard]//canActivate:[AuthGuardAdmin]
+    canActivate: [AuthGuardAdmin]//canActivate:[AuthGuardAdmin]
   },
   {
     path:'admin/cargos', component:AdminCargosComponent,
-    canActivate: [AuthGuard]//canActivate:[AuthGuardAdmin]
+    canActivate: [AuthGuardAdmin]//canActivate:[AuthGuardAdmin]
+  },{
+    path:'admin/perfis', component:AdminPerfilComponent,
+    canActivate: [AuthGuardAdmin]
   },
   {
     path:'admin/departamentos', component:AdminDepartamentosComponent,
-    canActivate: [AuthGuard]//canActivate:[AuthGuardAdmin]
+    canActivate: [AuthGuardAdmin]//canActivate:[AuthGuardAdmin]
   },
   {
     path: 'em-construcao', component:EmConstrucaoComponent,

@@ -72,32 +72,35 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Administração
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          <li class="dropdown-submenu">
-            <a class="dropdown-item" tabindex="-1">Dados</a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item" [routerLink]="['/admin/usuarios']"><a>Usuarios</a></li>
-              <div class="dropdown-divider"></div>
-              <li class="dropdown-item" [routerLink]="['/em-construcao']"><a>Perfis</a></li>
-              <div class="dropdown-divider"></div>
-              <li class="dropdown-item" [routerLink]="['/admin/departamentos']"><a>Eixos</a></li>
-              <div class="dropdown-divider"></div>
-              <li class="dropdown-item" [routerLink]="['/admin/cargos']"><a>Cargos</a></li>
-            </ul>
-          </li>
-          <li class="dropdown-submenu">
-            <a class="dropdown-item" tabindex="-1">Fluxograma</a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item" [routerLink]="['/em-construcao']" ><a>Departamento / Cargo / Usuario</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
+      <ng-template [ngIf]="verificaUsuarioAdmin()">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Administração
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item" tabindex="-1">Dados</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item" [routerLink]="['/admin/usuarios']"><a>Usuarios</a></li>
+                <div class="dropdown-divider"></div>
+                <li class="dropdown-item" [routerLink]="['/em-construcao']"><a>Perfis</a></li>
+                <div class="dropdown-divider"></div>
+                <li class="dropdown-item" [routerLink]="['/admin/departamentos']"><a>Eixos</a></li>
+                <div class="dropdown-divider"></div>
+                <li class="dropdown-item" [routerLink]="['/admin/cargos']"><a>Cargos</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item" tabindex="-1">Fluxograma</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item" [routerLink]="['/em-construcao']"><a>Departamento / Cargo / Usuario</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ng-template>
+
     </ul>
 
     <div class="dropdown" id='user_dropdown'>

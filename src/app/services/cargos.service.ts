@@ -10,18 +10,20 @@ export class CargosService extends HttpUtilService{
   private cargos_url = "api/contas/cargos"
 
   constructor(public http:Http) {
-    super(http) 
+    super(http)
+    super.carregarheaders()
   }
 
   carregarListaCargos(){
-    super.carregarheaders()
-    super.get({},this.cargos_url).subscribe(
-      (response)=>{
+    return new Promise((resolve,reject)=>{
+      super.get({},this.cargos_url).subscribe((response)=>{
         localStorage.setItem('cargos',JSON.stringify(response))
-      },(erro)=>{
-        console.log(erro)
-      }
-    )
+        resolve(response)
+      },(error)=>{
+        console.log("Error: " + error)
+        reject(error)
+      })
+    })
   }
 
   getCargoPeloId(id){

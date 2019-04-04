@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth-service"
+import { UsuarioService } from '../../services/usuario.service'
 import { Router } from "@angular/router";
-import { Observable } from "rxjs/Observable";
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Validators, FormBuilder, FormControl } from '@angular/forms';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
@@ -15,6 +14,8 @@ import 'rxjs/add/observable/throw';
 })
 export class LoginComponent implements OnInit {
 
+  public username:string = '' 
+  public password:string = ''
 
   public formBuilder: FormBuilder = new FormBuilder()
 
@@ -33,13 +34,11 @@ export class LoginComponent implements OnInit {
     messageSecondary: "",
   };
 
-  constructor(private router: Router, private authService: AuthService, fb: FormBuilder) {
+  constructor(private router: Router, private usuarioService: UsuarioService, private authService: AuthService, fb: FormBuilder) {
     localStorage.clear()
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   verifyFormValidationIsValid() {
     if (this.validations_form.get('username').invalid) {
@@ -50,41 +49,36 @@ export class LoginComponent implements OnInit {
       this.showErrorMessage("Preencha o campo de senha corretamente !", "");
       return false
     }
-
     return true
   }
 
-  public logar(username, password) {
+  public async logar(username, password) {
     this.alertCleanner()
     if (!this.verifyFormValidationIsValid()) { return }
-
-    this.authService.login(username, password).subscribe(
-        resposta => {
-          this.carregarDadosUsuario(username, password)
-          localStorage.setItem("token", resposta['token'])
-        },
-        error => {
-          this.showErrorMessage("Falha no login !", " Verifique Usuário e Senha");
-          console.error(error);
-        }
-      )
+    this.username = username
+    this.password = password
+    await this.logarUsuario()
+    await this.carregarDadosUsuario()
+    await this.usuarioService.carregarDadosUsuario()
+    await this.router.navigate(['/home'])
   }
 
-  private carregarDadosUsuario(username, password){
-    this.authService.pegarInformacoesUsuario(username, password).subscribe(
-      resposta => {
-      var userdata = this.authService.parseJwt(resposta['token'])
-      localStorage.setItem("usuario-informacoes", JSON.stringify(userdata))
-      this.router.navigate(['/home'])
-      
-    },
-    error => {
-      this.showErrorMessage("Falha no login !", " Verifique Usuário e Senha");
-      console.error(error);
-    }
-  )
+  private async logarUsuario() {
+    await this.authService.login(this.username, this.password).then(()=>{
+      this.carregarDadosUsuario()
+    }).catch(erro=>{
+      this.showErrorMessage(erro.mes, erro.submes)
+    })
   }
 
+  private async carregarDadosUsuario() {
+    console.log("Carregar usuario 01")
+    await this.authService.carregarInformacoesUsuario(this.username, this.password).then(()=>{
+      console.log("Carregar usuario 02")
+    }).catch(erro=>{
+      this.showErrorMessage(erro.mes, erro.submes)
+    })
+  }
 
 
   public alertCleanner() {

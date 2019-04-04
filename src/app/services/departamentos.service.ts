@@ -10,18 +10,20 @@ export class DepartamentosService extends HttpUtilService {
   private departamento_url = "api/contas/departamentos/"
 
   constructor(public http:Http) {
-    super(http) 
+    super(http)
+    super.carregarheaders() 
   }
 
   async carregarListaDepartamentos(){
-    super.carregarheaders()
-    await super.get({},this.departamento_url).subscribe(
-      (response)=>{
+    return new Promise((resolve,reject)=>{
+      super.get({},this.departamento_url).subscribe((response)=>{
         localStorage.setItem('departamentos',JSON.stringify(response))
-      },(erro)=>{
-        console.log(erro)
-      }
-    )
+        resolve(response)
+      },(error)=>{
+        console.log("Error: " + error)
+        reject(error)
+      })
+    })
   }
 
   getDepartamentoPeloId(id){

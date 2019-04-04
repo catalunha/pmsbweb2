@@ -13,10 +13,13 @@ export class AdminUsuariosComponent implements OnInit {
   public userlist = []
 
   constructor(private storageService: StorageDadosService) {
-    this.storageService.carregarDadosNoStorage()
+    this.storageService.carregarDadosNoStorage().then((resultado)=>{
+      this.carregarDadosNoUserList()
+    })
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  carregarDadosNoUserList(){
     this.storageService.carregarDadosNoStorage().then(() => {
       let userlist = this.storageService.recuperarListaUsuarioNoStorage()
       userlist.forEach(user => {
@@ -33,7 +36,7 @@ export class AdminUsuariosComponent implements OnInit {
       });
     })
   }
-
+  
   getDepartamento($id) {
     if ($id == null) { return "  " }
     return this.storageService.getDepartamentoPeloIdNoStorage($id).nome
