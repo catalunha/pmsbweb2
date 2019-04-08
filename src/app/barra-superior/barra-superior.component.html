@@ -104,9 +104,9 @@
     </ul>
 
     <div class="dropdown" id='user_dropdown'>
-      <a class=" dropdown-toggle" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        Username
+      <img src="{{ usuario.foto }}" width="40" style="padding-left:3%;border-radius: 50%;" class="img-responsive">
+      <a class=" dropdown-toggle" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ usuario['last_name'] }}
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" [routerLink]="['/conta']">Conta</a>
@@ -120,3 +120,4 @@
     </div>
   </div>
 </nav>
+

@@ -9,9 +9,12 @@ import { UsuarioService } from '../services/usuario.service'
 })
 export class BarraSuperiorComponent implements OnInit {
 
+  private usuario
+
   constructor(private  usuarioService:UsuarioService ,private authService:AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.usuario = JSON.parse(localStorage['usuario'])  
   }
 
   logOut() {
