@@ -26,6 +26,7 @@ import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.co
 import { AdminUsuariosComponent } from './pages/admin/admin-usuarios/admin-usuarios.component';
 import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/admin-departamentos.component';
 import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
+import { ContaComponent } from './pages/conta/conta.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.co
     AdminUsuariosComponent,
     AdminDepartamentosComponent,
     AdminCargosComponent,
+    ContaComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,6 +25,16 @@ export class DepartamentosService extends HttpUtilService {
       })
     })
   }
+  
+  public carregarDepartamentoPeloId(id){
+    return new Promise((resolve,reject)=>{
+      super.get({},this.departamento_url.concat(id)).subscribe((response)=>{
+        resolve(response)
+      },(error)=>{
+        reject(error)
+      })
+    })
+  }
 
   getDepartamentoPeloId(id){
     let departamentos = JSON.parse(localStorage['departamentos'])

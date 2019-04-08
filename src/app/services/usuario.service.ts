@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { HttpUtilService } from './http-util-service'
-import { StorageDadosService } from './ferramentas-auxiliares/storage-dados.service';
-import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -28,15 +26,28 @@ export class UsuarioService extends HttpUtilService {
     })
   }
 
-  public carregarDadosUsuario(){
-    var usuario = JSON.parse(localStorage['usuario-informacoes'])
-    super.get({'id':usuario.user_id},this.user_url.concat(usuario.user_id)).subscribe((response)=>{
-
-      localStorage.setItem('usuario',JSON.stringify(response))
-      console.log({user_after_:response})
-    },(error)=>{
-      console.log(error)
+  public carregarUsuarioPeloId(id){
+    return new Promise((resolve,reject)=>{
+      super.get({},this.user_url.concat(id)).subscribe((response)=>{
+        resolve(response)
+      },(error)=>{
+        reject(error)
+      })
     })
+  }
+
+  public carregarDadosUsuario(){
+    return new Promise((resolve,reject)=>{
+      var usuario = JSON.parse(localStorage['usuario-informacoes'])
+      super.get({},this.user_url.concat(usuario.user_id)).subscribe((response)=>{
+        localStorage.setItem('usuario',JSON.stringify(response))
+        resolve(response)
+      },(error)=>{
+        console.log(error)
+        reject(error)
+      })
+    })
+
   }
 
   public getDadosUsuario(){
@@ -44,16 +55,16 @@ export class UsuarioService extends HttpUtilService {
   }
 
   public verificarSeUsuarioPertenceGrupo(group_id){
-    var user = this.getDadosUsuario()
-    console.log({user:user})
-    if(user['groups'].size <= 0){return false}
     
+    var user = this.getDadosUsuario()
+
+    if(user['groups'].length <= 0){
+      return false
+    }
     var resultado = false
     user['groups'].forEach(element => {
       if(element == group_id){resultado=true}  
     })
-    console.log("retorna verificacao")
-    return resultado
-  
+    return resultado  
   }
 }

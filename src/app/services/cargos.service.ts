@@ -7,7 +7,7 @@ import { Http } from "@angular/http";
 })
 export class CargosService extends HttpUtilService{
 
-  private cargos_url = "api/contas/cargos"
+  private cargos_url = "api/contas/cargos/"
 
   constructor(public http:Http) {
     super(http)
@@ -26,10 +26,16 @@ export class CargosService extends HttpUtilService{
     })
   }
 
-  getCargoPeloId(id){
-    let departamentos = JSON.parse(localStorage['cargos'])
-    return departamentos.find((depatamento)=>{return depatamento.id == id})
+  carregarCargoPeloId(id){
+    return new Promise((resolve,reject)=>{
+      super.get({},this.cargos_url.concat(id)).subscribe((response)=>{
+        resolve(response)
+      },(error)=>{
+        reject(error)
+      })
+    })
   }
+
 
 }
 

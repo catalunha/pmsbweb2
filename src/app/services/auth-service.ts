@@ -20,13 +20,13 @@ export class AuthService extends HttpUtilService {
     return new Promise((resolve,reject)=>{
       super.post(loginData,this.login_token_url.concat('get-auth-token')).subscribe(
         resposta => {
-          console.log("logar Usuario")
+          //console.log("logar Usuario")
           localStorage.setItem("token", resposta['token'])
           resolve(resposta)
         },
         error => {
           reject({mes:"Falha no login !",submes: " Verifique Usuário e Senha"});
-          console.error(error);
+          alert(error);
         }
       )
     })
@@ -37,7 +37,6 @@ export class AuthService extends HttpUtilService {
     return new Promise((resolve,reject)=>{
       super.post(loginData,this.login_token_url.concat('jwt/auth-token/')).subscribe(
         resposta => {
-          console.log("carregar dados")
           var userdata = this.parseJwt(resposta['token'])
           localStorage.setItem("usuario-informacoes", JSON.stringify(userdata))
           resolve(resposta)

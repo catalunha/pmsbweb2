@@ -38,7 +38,16 @@ export class LoginComponent implements OnInit {
     localStorage.clear()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    /** 
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "\o/";
+    console.log("cond");
+      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+      return confirmationMessage;              // Gecko, WebKit, Chrome <34
+    });
+    */
+  }
 
   verifyFormValidationIsValid() {
     if (this.validations_form.get('username').invalid) {
@@ -65,21 +74,18 @@ export class LoginComponent implements OnInit {
 
   private async logarUsuario() {
     await this.authService.login(this.username, this.password).then(()=>{
-      this.carregarDadosUsuario()
+      //this.carregarDadosUsuario()
     }).catch(erro=>{
       this.showErrorMessage(erro.mes, erro.submes)
     })
   }
 
   private async carregarDadosUsuario() {
-    console.log("Carregar usuario 01")
-    await this.authService.carregarInformacoesUsuario(this.username, this.password).then(()=>{
-      console.log("Carregar usuario 02")
+    await this.authService.carregarInformacoesUsuario(this.username, this.password).then((info)=>{
     }).catch(erro=>{
       this.showErrorMessage(erro.mes, erro.submes)
     })
   }
-
 
   public alertCleanner() {
     this.alerta_erro.message = ""

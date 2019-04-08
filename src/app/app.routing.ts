@@ -10,6 +10,7 @@ import { AdminUsuariosComponent } from './pages/admin/admin-usuarios/admin-usuar
 import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/admin-departamentos.component'
 import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
 import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.component'
+import { ContaComponent } from './pages/conta/conta.component';
 
 export const appRoutes: Routes = [
   {
@@ -27,6 +28,10 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuardAdmin]
   },
   {
+    path:'admin/perfil/:id', component:PerfilComponent,
+    canActivate: [AuthGuardAdmin]
+  },
+  {
     path:'admin/departamentos', component:AdminDepartamentosComponent,
     canActivate: [AuthGuardAdmin]//canActivate:[AuthGuardAdmin]
   },
@@ -36,6 +41,10 @@ export const appRoutes: Routes = [
   },
   {
     path: 'home', component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'conta', component: ContaComponent,
     canActivate: [AuthGuard]
   },{
     path:'perfil', component: PerfilComponent,

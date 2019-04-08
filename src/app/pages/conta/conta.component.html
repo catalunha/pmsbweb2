@@ -1,0 +1,22 @@
+<app-barra-superior></app-barra-superior>
+
+
+<div *ngIf='usuario' class="container" style="padding-top:3%">
+  <h3>Dados da conta</h3>
+  <div class="row">
+    <div class="col-8">
+      <div *ngIf='usuario' class="container" style="padding-top:3%">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong> Cpf: </strong> {{ usuario.username }} </li>
+          <li class="list-group-item"><strong> Nome: </strong> {{ usuario.first_name }} </li>
+          <li class="list-group-item"><strong> Telefone: </strong> {{ usuario.telefone_celular }} </li>
+          <li class="list-group-item"><strong> Email: </strong> {{ usuario.email }} </li>
+          <li class="list-group-item"><strong> Superior: </strong> {{ usuario.superior }} </li>
+          <li class="list-group-item"><strong> Departamento: </strong> {{ usuario.departamento }} </li>
+          <li class="list-group-item"><strong> Cargo: </strong> {{ usuario.cargo }} </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-2"><img src="{{ usuario.foto}}" alt="Girl in a jacket" width="200"></div>
+  </div>
+</div>

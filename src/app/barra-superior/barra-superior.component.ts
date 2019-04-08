@@ -20,7 +20,7 @@ export class BarraSuperiorComponent implements OnInit {
   }
 
   verificaUsuarioAdmin(){
-    console.log("pede verificacao")
+    //console.log("pede verificacao")
     return this.usuarioService.verificarSeUsuarioPertenceGrupo('14')
   }
 

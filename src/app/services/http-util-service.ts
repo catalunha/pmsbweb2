@@ -14,12 +14,14 @@ export class HttpUtilService {
     private headers: Headers;
 
     post(requestbody, end): Observable<any> {
+        this.carregarheaders()
         return this.http.post(this.api_url.concat(end), requestbody, { headers: this.headers })
             .map(this.extrairDados)
             .catch(this.processarErros);
     }
 
     get(params, end) {
+        this.carregarheaders()
         return this.http.get(this.api_url.concat(end), {
             headers: this.headers,
             search: params
@@ -41,7 +43,6 @@ export class HttpUtilService {
 
     extrairDados(response: Response) {
         let data = response.json();
-        //console.log(data);
         return data || {};
     }
 
@@ -50,7 +51,8 @@ export class HttpUtilService {
         if (erro.status === 401) {
             delete localStorage['user'];
             delete localStorage['token'];
-            location.reload();
+            localStorage.clear()
+            //location.reload();
             //this.router.navigate(['/login']);
         }
 

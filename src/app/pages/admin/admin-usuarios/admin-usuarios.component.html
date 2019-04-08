@@ -11,29 +11,52 @@
 <div class="container" style="padding-top:1%">
     <div class="row">
         <div class="col">
-            <p>Faça download desta listagem para uso em planilha,<a (click)="gerarCSV()" onmouseover="style.color='#0B0080'" onmouseout="style.color='#3366bb'"  style="color: #3366bb" > clicando aqui.</a></p>
+            <p>Faça download desta listagem para uso em planilha,<a (click)="gerarCSV()"
+                    onmouseover="style.color='#0B0080'" onmouseout="style.color='#3366bb'" style="color: #3366bb">
+                    clicando aqui.</a>
+            </p>
         </div>
     </div>
+    <button *ngIf="loading" class="btn btn-link" style="padding-left: 50%;padding-right: 45%" disabled>
+        <span class="spinner-border text-muted"></span>
+        Carregando...
+    </button>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">Minefoto</th>
-                <th scope="col" ><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorValor('username')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">CPF</i></a></th>
-                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('first_name')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Nome</i></a></th>
-                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorValor('telefone_celular')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Telefone</i></a></th>
-                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('email')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Email</i></a></th>
-                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('superior')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Superior</i></a></th>
-                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('departamento')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Departamento</i></a></th>
-                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'" (click)="ordenarPorString('cargo')"><i style="font-style: normal;" class="ion-md-arrow-dropdown">Cargo</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'"
+                        (click)="ordenarPorValor('username')"><i style="font-style: normal;"
+                            class="ion-md-arrow-dropdown">CPF</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'"
+                        (click)="ordenarPorString('first_name')"><i style="font-style: normal;"
+                            class="ion-md-arrow-dropdown">Nome</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'"
+                        (click)="ordenarPorValor('telefone_celular')"><i style="font-style: normal;"
+                            class="ion-md-arrow-dropdown">Telefone</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'"
+                        (click)="ordenarPorString('email')"><i style="font-style: normal;"
+                            class="ion-md-arrow-dropdown">Email</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'"
+                        (click)="ordenarPorString('superior')"><i style="font-style: normal;"
+                            class="ion-md-arrow-dropdown">Superior</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'"
+                        (click)="ordenarPorString('departamento')"><i style="font-style: normal;"
+                            class="ion-md-arrow-dropdown">Departamento</i></a></th>
+                <th scope="col"><a onmouseover="style.color='#0645AD'" onmouseout="style.color='black'"
+                        (click)="ordenarPorString('cargo')"><i style="font-style: normal;"
+                            class="ion-md-arrow-dropdown">Cargo</i></a></th>
             </tr>
         </thead>
+
         <tbody *ngFor="let user of userlist">
+
             <tr>
                 <td>
                     <img src="{{ user.foto }}" alt="Girl in a jacket" width="50">
                 </td>
                 <td>
-                    {{ user.username }}
+                    <button type="button" (click)="navegarParaPerfilUsuario(user)" class="btn btn-link">{{ user.username }}</button>
                 </td>
                 <td>
                     {{ user.first_name }}

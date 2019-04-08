@@ -1,31 +1,45 @@
-<app-barra-superior></app-barra-superior>
+<app-barra-superior *ngIf='perfil_individual'></app-barra-superior>
 
-<div class="container" style="padding-top:2%">
+<app-conta *ngIf='!perfil_individual'></app-conta>
+
+<div class="container" style="padding-top:3%">
+        <h3>Dados do Pefil</h3>
     <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Ação</th>
+        <thead>
+            <tr>    
+                <th *ngIf='perfil_individual' scope="col">Ação</th>
                 <th scope="col">Atributo</th>
                 <th scope="col">Valor</th>
             </tr>
         </thead>
         <tbody *ngFor="let perfil of perfilLista">
             <tr>
-                <td>
-                    <ng-template [ngIf]="perfil.acao == 'preencher'" [ngIfElse]="perfilElse">
+
+                <td *ngIf='perfil_individual'>
+                    <ng-template [ngIf]="perfil.valor" [ngIfElse]="perfilAcao">
                         <a class="acao nav-link icon-text btn btn-outline-secondary"><i class="icon ion-md-add"></i>
-                            {{ perfil.acao }} </a>
+                            Editar </a>
                     </ng-template>
-                    <ng-template #perfilElse>
+                    <ng-template #perfilAcao>
                         <a class="acao nav-link icon-text btn btn-outline-secondary"><i class="icon ion-ios-create"></i>
-                            {{ perfil.acao }} </a>
+                            Preencher</a>
                     </ng-template>
-                </td>
-                <th scope="row">{{ perfil.atributo }}</th>
-                <td>
-                    <a disable class="nav-link icon-text"> {{ perfil.valor }} </a>
                 </td>
 
+                <th scope="row">{{ perfil.nome }}</th>
+
+                <td>
+                    <ng-template [ngIf]="perfil.valor_tipo == 'valor'" [ngIfElse]="perfiValorlElse">
+                        <a class=""> {{ perfil.valor}}</a>
+                    </ng-template>
+                    <ng-template #perfiValorlElse>
+
+                        <ng-template [ngIf]="perfil.valor">
+                            <a href="{{ perfil.valor }}">Link documento </a>
+                        </ng-template>
+
+                    </ng-template>
+                </td>
             </tr>
         </tbody>
     </table>
