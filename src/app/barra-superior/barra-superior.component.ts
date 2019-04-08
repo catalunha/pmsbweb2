@@ -9,7 +9,7 @@ import { UsuarioService } from '../services/usuario.service'
 })
 export class BarraSuperiorComponent implements OnInit {
 
-  private usuario
+  public usuario
 
   constructor(private  usuarioService:UsuarioService ,private authService:AuthService, private router: Router) { }
 

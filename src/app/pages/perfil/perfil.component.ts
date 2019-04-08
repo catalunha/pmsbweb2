@@ -11,8 +11,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class PerfilComponent implements OnInit {
 
-  private perfilLista = []
-  private usuario_id = null
+  public perfilLista = []
+  public usuario_id = null
   public perfil_individual = false
 
 

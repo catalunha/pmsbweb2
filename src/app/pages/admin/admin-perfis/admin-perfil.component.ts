@@ -86,17 +86,6 @@ export class AdminPerfilComponent implements OnInit {
     if (result) { return result.valor }
     else { return 'não informou' }
 
-
-    /** 
-    var result = null
-    if (perfil['documento']) {
-      result = this.storageService.getPerfilAtributoDocumentosPeloIdNoStorage(user.id, perfil.id)
-      if (result) { return result.arquivo }
-    } else {
-      result = this.storageService.getPerfilAtributoValoresPeloIdNoStorage(user.id, perfil.id)
-      if (result) { return result.valor }
-    }
-    return result*/
   }
 
   getDepartamento($id) {

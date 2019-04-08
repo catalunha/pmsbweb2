@@ -10,7 +10,7 @@ import { FuncoesAuxiliaresService } from 'src/app/services/ferramentas-auxiliare
 })
 export class AdminDepartamentosComponent implements OnInit {
 
-  private departamento_list = []
+  public departamento_list = []
 
   constructor(private storageService: StorageDadosService) { }
 
