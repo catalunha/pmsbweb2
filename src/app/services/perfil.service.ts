@@ -14,7 +14,6 @@ export class PerfilService extends HttpUtilService {
   }
 
   private carregarLista(data_id){
-
     return new Promise((resolve,reject)=>{
       super.get({},this.perfil_url.concat(data_id)).subscribe((response)=>{
         localStorage.setItem('perfil-' + data_id,JSON.stringify(response))

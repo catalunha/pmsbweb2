@@ -10,7 +10,7 @@ export class HttpUtilService {
         this.carregarheaders()
     }
 
-    private api_url: string = 'http://174.138.119.228/pmsb/';
+    private api_url: string = 'http://174.138.119.228/';
     private headers: Headers;
 
     post(requestbody, end): Observable<any> {

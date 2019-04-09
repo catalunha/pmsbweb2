@@ -27,6 +27,7 @@ import { AdminUsuariosComponent } from './pages/admin/admin-usuarios/admin-usuar
 import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/admin-departamentos.component';
 import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
 import { ContaComponent } from './pages/conta/conta.component';
+import { QuestionarioComponent } from './pages/questionario/questionario.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ContaComponent } from './pages/conta/conta.component';
     AdminDepartamentosComponent,
     AdminCargosComponent,
     ContaComponent,
+    QuestionarioComponent,
   ],
   imports: [
     BrowserModule,

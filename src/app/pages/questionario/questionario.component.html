@@ -1,0 +1,9 @@
+<app-barra-superior></app-barra-superior>
+
+<div class="container" style="padding-top:2%">
+    <h5>Àreas</h5>
+
+    <ul *ngFor='let setor of setores' class="list-group">
+        <li class="list-group-item" >{{ setor.nome }}</li>
+    </ul>
+</div>

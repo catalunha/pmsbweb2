@@ -11,32 +11,34 @@ import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/a
 import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
 import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.component'
 import { ContaComponent } from './pages/conta/conta.component';
+import { QuestionarioComponent } from './pages/questionario/questionario.component';
 
 export const appRoutes: Routes = [
   {
-    path: '', redirectTo:'home',pathMatch:'full'  
+    path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
-    path:'admin/usuarios', component:AdminUsuariosComponent,
+    path: 'admin/usuarios', component: AdminUsuariosComponent,
     canActivate: [AuthGuardAdmin]//canActivate:[AuthGuardAdmin]
   },
   {
-    path:'admin/cargos', component:AdminCargosComponent,
+    path: 'admin/cargos', component: AdminCargosComponent,
     canActivate: [AuthGuardAdmin]//canActivate:[AuthGuardAdmin]
-  },{
-    path:'admin/perfis', component:AdminPerfilComponent,
+  },
+  {
+    path: 'admin/perfis', component: AdminPerfilComponent,
     canActivate: [AuthGuardAdmin]
   },
   {
-    path:'admin/perfil/:id', component:PerfilComponent,
+    path: 'admin/perfil/:id', component: PerfilComponent,
     canActivate: [AuthGuardAdmin]
   },
   {
-    path:'admin/departamentos', component:AdminDepartamentosComponent,
+    path: 'admin/departamentos', component: AdminDepartamentosComponent,
     canActivate: [AuthGuardAdmin]//canActivate:[AuthGuardAdmin]
   },
   {
-    path: 'em-construcao', component:EmConstrucaoComponent,
+    path: 'em-construcao', component: EmConstrucaoComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -46,9 +48,13 @@ export const appRoutes: Routes = [
   {
     path: 'conta', component: ContaComponent,
     canActivate: [AuthGuard]
-  },{
-    path:'perfil', component: PerfilComponent,
-    canActivate:[AuthGuard]
+  }, {
+    path: 'perfil', component: PerfilComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'questionario', component: QuestionarioComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login', component: LoginComponent
