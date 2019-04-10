@@ -1,4 +1,17 @@
 
+#Organização dos components
+
+* pages
+    * admin
+        * admin-cargos
+        * admin-departamentos
+        * admin-perfis
+        * admin-usuarios
+    * questionario
+        * questionario-areas
+        * questionario-perguntas
+        * questionario-respostas
+
 #Menu administração:
 
 * Tarefas
@@ -29,3 +42,6 @@
         * Cargos
     * Fluxograma
         * Departamento / Cargo / Usuario
+
+
+

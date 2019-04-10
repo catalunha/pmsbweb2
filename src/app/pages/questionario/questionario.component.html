@@ -1,9 +1,42 @@
 <app-barra-superior></app-barra-superior>
 
-<div class="container" style="padding-top:2%">
-    <h5>Àreas</h5>
+<button *ngIf="loading" class="btn btn-link" style="padding-left: 50%;padding-right: 45%" disabled>
+    <span class="spinner-border text-muted"></span>
+    Carregando...
+</button>
 
-    <ul *ngFor='let setor of setores' class="list-group">
-        <li class="list-group-item" >{{ setor.nome }}</li>
-    </ul>
-</div>
+
+<ng-template [ngIf]="quest_page.areas" [ngIfElse]="questionarioElse">
+
+    <div class="container" style="padding-top:2%">
+        <h5>Àreas</h5>
+        <ul *ngFor='let setor of setores' class="list-group" style="padding-top :1%;">
+            <li class="list-group-item"><button (click)='carregarPerguntasArea(setor)' type="button"
+                    class="btn btn-link">{{ setor.nome }}</button> </li>
+        </ul>
+    </div>
+
+</ng-template>
+
+<ng-template #questionarioElse>
+
+    <div class="container" style="padding-top:2%">
+
+        <div class="row">
+            <div class="col-8">
+                <h5>{{ setor.nome }} - Questionarios</h5>
+            </div>
+            <div class="col"><button (click)='voltarAListagem()' type="button" class="btn btn-link">Voltar a listagem
+                    das àreas</button></div>
+        </div>
+
+        <ul *ngFor='let questionario of questionarios' style="padding-top :1%;" class="list-group">
+            <li class="list-group-item">
+                <button (click)='questtest(questionario)' type="button"
+                    class="btn btn-link">{{ questionario.nome }}</button>
+                <span class="badge badge-primary badge-pill">{{ getTamanhoListaResposTas(questionario.respostas) }}</span>
+            </li>
+        </ul>
+    </div>
+
+</ng-template>

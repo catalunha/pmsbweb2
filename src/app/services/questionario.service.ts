@@ -23,4 +23,26 @@ export class QuestionarioService extends HttpUtilService {
       })
     })
   }
+
+  public carregarQuestionario(){
+    return new Promise((resolve,reject)=>{
+      super.get({},this.questionario_url.concat('questionarios/')).subscribe((response)=>{
+        resolve(response)
+      },(error)=>{
+        reject(error)
+        console.log(error)
+      })
+    })
+  }
+
+  public carregarRespostas(){
+    return new Promise((resolve,reject)=>{
+      super.get({},this.questionario_url.concat('respostas/')).subscribe((response)=>{
+        resolve(response)
+      },(error)=>{
+        reject(error)
+        console.log(error)
+      })
+    })
+  }
 }
