@@ -13,7 +13,8 @@ import { HttpModule } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 //component temporario
 import { EmConstrucaoComponent } from './pages/em-construcao/em-construcao.component';
 
@@ -28,6 +29,7 @@ import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/a
 import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
 import { ContaComponent } from './pages/conta/conta.component';
 import { QuestionarioComponent } from './pages/questionario/questionario.component';
+import { ProdutosComponent } from './pages/produtos/produtos.component';
 
 
 @NgModule({
@@ -44,14 +46,17 @@ import { QuestionarioComponent } from './pages/questionario/questionario.compone
     AdminCargosComponent,
     ContaComponent,
     QuestionarioComponent,
+    ProdutosComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatCardModule
   ],
   providers: [
     HttpClient, 

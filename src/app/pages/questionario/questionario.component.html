@@ -9,7 +9,7 @@
 <ng-template [ngIf]="quest_page.areas" [ngIfElse]="questionarioElse">
 
     <div class="container" style="padding-top:2%">
-        <h5>Àreas</h5>
+        <h5>Áreas</h5>
         <ul *ngFor='let setor of setores' class="list-group" style="padding-top :1%;">
             <li class="list-group-item"><button (click)='carregarPerguntasArea(setor)' type="button"
                     class="btn btn-link">{{ setor.nome }}</button> </li>

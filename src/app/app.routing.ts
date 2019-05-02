@@ -12,6 +12,7 @@ import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.co
 import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.component'
 import { ContaComponent } from './pages/conta/conta.component';
 import { QuestionarioComponent } from './pages/questionario/questionario.component';
+import {ProdutosComponent} from './pages/produtos/produtos.component';
 
 export const appRoutes: Routes = [
   {
@@ -54,6 +55,10 @@ export const appRoutes: Routes = [
   },
   {
     path: 'questionario', component: QuestionarioComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'produtos', component: ProdutosComponent,
     canActivate: [AuthGuard]
   },
   {
