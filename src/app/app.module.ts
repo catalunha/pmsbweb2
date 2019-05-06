@@ -28,7 +28,12 @@ import { AdminDepartamentosComponent } from './pages/admin/admin-departamentos/a
 import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.component';
 import { ContaComponent } from './pages/conta/conta.component';
 import { QuestionarioComponent } from './pages/questionario/questionario.component';
-
+import { ProdutosComponent } from './pages/produtos/produtos.component';
+import {MatListModule, MatSelectModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+import { IndicesComponent } from './pages/indices/indices.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +49,22 @@ import { QuestionarioComponent } from './pages/questionario/questionario.compone
     AdminCargosComponent,
     ContaComponent,
     QuestionarioComponent,
+    ProdutosComponent,
+    IndicesComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatCardModule,
+    MatChipsModule,
+    MatSelectModule,
+    MatListModule,
+
   ],
   providers: [
     HttpClient, 

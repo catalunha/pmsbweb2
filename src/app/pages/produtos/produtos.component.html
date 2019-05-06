@@ -1,0 +1,40 @@
+<app-barra-superior></app-barra-superior>
+
+  <div class="container" style="padding-top:2%">
+    <h4 class="text-center" style="padding-bottom: 2%">Lista de Produtos</h4>
+    <mat-card *ngFor='let produto of produtos'>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <h6><strong>Titulo: </strong>{{produto.titulo}} </h6>
+          </div>
+          <div class="col text-right">
+            <div class="btn-group" role="group">
+              <a [routerLink]="['/indices']" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Gerênciar Índices">
+                <i class="fas fa-list-ol"></i>
+              </a>
+              <a [routerLink]="['/em-construcao']" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Título e Descrição">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a [routerLink]="['/em-construcao']" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir Produto">
+                <i class="fas fa-trash-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h6><strong>Autor: </strong>{{produto.titulo}}</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h6><strong>Descrição: </strong>{{produto.descricao}}</h6>
+          </div>
+          <div class="col">
+            <h6 class="text-right"><strong>Criado em: </strong>{{produto.criado_em | date: 'dd/MM/yyyy'}}</h6>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
