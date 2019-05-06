@@ -13,6 +13,7 @@ import { AdminPerfilComponent } from './pages/admin/admin-perfis/admin-perfil.co
 import { ContaComponent } from './pages/conta/conta.component';
 import { QuestionarioComponent } from './pages/questionario/questionario.component';
 import {ProdutosComponent} from './pages/produtos/produtos.component';
+import {IndicesComponent} from './pages/indices/indices.component';
 
 export const appRoutes: Routes = [
   {
@@ -59,6 +60,10 @@ export const appRoutes: Routes = [
   },
   {
     path: 'produtos', component: ProdutosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'indices', component: IndicesComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -17,7 +17,7 @@ export class ProdutoService extends HttpUtilService {
   public carregarRelatorios() {
     return new Promise((resolve, reject) => {
       super.get({},this.produto_url.concat('blocos/')).subscribe((response) => {
-        console.log(response);
+        // console.log(response);
         resolve(response)
       }, (error) => {
         reject(error)

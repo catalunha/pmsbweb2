@@ -13,8 +13,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
+
 //component temporario
 import { EmConstrucaoComponent } from './pages/em-construcao/em-construcao.component';
 
@@ -30,7 +29,11 @@ import { AdminCargosComponent } from './pages/admin/admin-cargos/admin-cargos.co
 import { ContaComponent } from './pages/conta/conta.component';
 import { QuestionarioComponent } from './pages/questionario/questionario.component';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
-
+import {MatListModule, MatSelectModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+import { IndicesComponent } from './pages/indices/indices.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,7 @@ import { ProdutosComponent } from './pages/produtos/produtos.component';
     ContaComponent,
     QuestionarioComponent,
     ProdutosComponent,
+    IndicesComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,11 @@ import { ProdutosComponent } from './pages/produtos/produtos.component';
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    MatCardModule
+    MatCardModule,
+    MatChipsModule,
+    MatSelectModule,
+    MatListModule,
+
   ],
   providers: [
     HttpClient, 
